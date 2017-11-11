@@ -10,4 +10,5 @@ abstract class Team implements Cloneable{
 
     abstract public double getCollectedMoney();
     abstract public void sortPeopleByCollectedMoney();
+    abstract public void checkCollectedMoney();
 }

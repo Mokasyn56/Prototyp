@@ -29,6 +29,55 @@ public class TeamRakowicki extends Team {
     }
 
     @Override
+    public void checkCollectedMoney() {
+        int zlotowki = 0;
+        int dwazlote = 0;
+        int pieczlotych = 0;
+        int dziesieczl = 0;
+        int dwadziesciazl = 0;
+        int piecdziesiatzl = 0;
+        int stozl = 0;
+        int dwiesciezl = 0;
+        for (Person p: lista) {
+            for(Nominal nominal: p.getKwoty()){
+                if(nominal.getValue()==1){
+                    zlotowki++;
+                }
+                else if(nominal.getValue()==2){
+                    dwazlote++;
+                }
+                else if(nominal.getValue()==5){
+                    pieczlotych++;
+                }
+                else if(nominal.getValue()==10){
+                    dziesieczl++;
+                }
+                else if(nominal.getValue()==20){
+                    dwadziesciazl++;
+                }
+                else if(nominal.getValue()==50){
+                    piecdziesiatzl++;
+                }
+                else if(nominal.getValue()==100){
+                    stozl++;
+                }
+                else if(nominal.getValue()==200){
+                    dwiesciezl++;
+                }
+            }
+            System.out.println(p.getName()+" "+p.getSurname()+" zebrał "+zlotowki+" zlotówek, "+dwazlote+" dwuzłotówek, "+pieczlotych+" pięciozłotówek, "+dziesieczl+" banknotów 10zł, "+dwadziesciazl+", banknotów 20zł, "+piecdziesiatzl+" banknotów 50zł, "+stozl+" banknotów 100zł i "+dwiesciezl+" banknotów 200zł.");
+            zlotowki = 0;
+            dwazlote = 0;
+            pieczlotych = 0;
+            dziesieczl = 0;
+            dwadziesciazl = 0;
+            piecdziesiatzl = 0;
+            stozl = 0;
+            dwiesciezl = 0;
+        }
+    }
+
+    @Override
     public void sortPeopleByCollectedMoney() {
         Collections.sort(lista, new Comparator<Person>() {
             @Override
